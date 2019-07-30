@@ -1,0 +1,3 @@
+url_login: "http://[::1]/fulltrack/emp/fulltime"
+url_padrao: "http://[::1]/fulltrack"
+url_inicial: "http://[::1]/fulltrack/dashboard_controller"
