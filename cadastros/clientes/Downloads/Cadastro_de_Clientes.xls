@@ -1,0 +1,501 @@
+
+<html><head></head><body><table id="clientes" class="table table-striped dt-responsive dataTable dtr-inline" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Razão Social / Nome</th>
+            <th>Nome Fantasia</th>
+            <th>Cidade</th>
+            <th>Estado</th>
+            <th>País</th>
+            <th>Perfil</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        
+                <tr data-id="59244">
+                    <td>59244</td>
+                    <td>Osmar</td>
+                    <td>Osmar</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Não possui perfil</td>
+                </tr>
+
+                
+                <tr data-id="72724">
+                    <td>72724</td>
+                    <td>Holomogação de Rastreadores</td>
+                    <td>Teste</td>
+                    <td>Garça</td>   
+                    <td>SP</td>
+                    <td>Brasil</td>
+                    <td>Homologação</td>
+                </tr>
+
+                
+                <tr data-id="75215">
+                    <td>75215</td>
+                    <td>Dauto Maciel</td>
+                    <td>Dauto Maciel</td>
+                    <td>Garça</td>   
+                    <td>SP</td>
+                    <td>Brasil</td>
+                    <td>Perfil Cliente Dauto</td>
+                </tr>
+
+                
+                <tr data-id="80905">
+                    <td>80905</td>
+                    <td>Bruno Ribeiro</td>
+                    <td>Bruno Ribeiro</td>
+                    <td>Vera Cruz</td>   
+                    <td>SP</td>
+                    <td>Brasil</td>
+                    <td>Completo</td>
+                </tr>
+
+                
+                <tr data-id="82005">
+                    <td>82005</td>
+                    <td>Ana Laura</td>
+                    <td>Ana Laura</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Não possui perfil</td>
+                </tr>
+
+                
+                <tr data-id="82006">
+                    <td>82006</td>
+                    <td>Edemilson Gonsalves</td>
+                    <td>Edemilson Gonsalves</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Não possui perfil</td>
+                </tr>
+
+                
+                <tr data-id="82007">
+                    <td>82007</td>
+                    <td>Fabiano Souza</td>
+                    <td>Fabiano Souza</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Perfil Cliente Dauto</td>
+                </tr>
+
+                
+                <tr data-id="82008">
+                    <td>82008</td>
+                    <td>Fernando Machado</td>
+                    <td>Fernando Machado</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Não possui perfil</td>
+                </tr>
+
+                
+                <tr data-id="82009">
+                    <td>82009</td>
+                    <td>José Neto</td>
+                    <td>José Neto</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Paquete Simple</td>
+                </tr>
+
+                
+                <tr data-id="83277">
+                    <td>83277</td>
+                    <td>Ulisses Boyd</td>
+                    <td>Ulisses Boyd Globalstar</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Não possui perfil</td>
+                </tr>
+
+                
+                <tr data-id="83528">
+                    <td>83528</td>
+                    <td>Cristiano Semenzato</td>
+                    <td>Cristiano Semenzato</td>
+                    <td>Garça</td>   
+                    <td>SP</td>
+                    <td>Brasil</td>
+                    <td>Perfil Cliente Dauto</td>
+                </tr>
+
+                
+                <tr data-id="85952">
+                    <td>85952</td>
+                    <td>Carlos</td>
+                    <td>Carlos</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Não possui perfil</td>
+                </tr>
+
+                
+                <tr data-id="86605">
+                    <td>86605</td>
+                    <td>João Tocilo</td>
+                    <td>João Tocilo</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Perfil Cliente Dauto</td>
+                </tr>
+
+                
+                <tr data-id="86606">
+                    <td>86606</td>
+                    <td>Gustavo Teixeira</td>
+                    <td>Gustavo Teixeira</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Perfil Cliente Dauto</td>
+                </tr>
+
+                
+                <tr data-id="87714">
+                    <td>87714</td>
+                    <td>Teste numero endereco</td>
+                    <td>teste 123</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Não possui perfil</td>
+                </tr>
+
+                
+                <tr data-id="90052">
+                    <td>90052</td>
+                    <td>Fernando Lopes</td>
+                    <td>Fernando Lopes</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Completo</td>
+                </tr>
+
+                
+                <tr data-id="90053">
+                    <td>90053</td>
+                    <td>Anselmo</td>
+                    <td>Anselmo</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Perfil Cliente Dauto</td>
+                </tr>
+
+                
+                <tr data-id="92596">
+                    <td>92596</td>
+                    <td>Dispatch - Não mexer</td>
+                    <td>Dispatch - Não mexer</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>DISPATCH</td>
+                </tr>
+
+                
+                <tr data-id="93251">
+                    <td>93251</td>
+                    <td>Luis Teste</td>
+                    <td>Não Deletar</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Completo</td>
+                </tr>
+
+                
+                <tr data-id="96237">
+                    <td>96237</td>
+                    <td>Pedro</td>
+                    <td>Pedro</td>
+                    <td>vera cruz</td>   
+                    <td>SP</td>
+                    <td>Brasil</td>
+                    <td>Completo</td>
+                </tr>
+
+                
+                <tr data-id="103417">
+                    <td>103417</td>
+                    <td>Daniel Quero</td>
+                    <td>Daniel Quero</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Não possui perfil</td>
+                </tr>
+
+                
+                <tr data-id="105895">
+                    <td>105895</td>
+                    <td>Agroterenas_TESTES</td>
+                    <td>Agroterenas_TESTES</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Agroteste</td>
+                </tr>
+
+                
+                <tr data-id="107900">
+                    <td>107900</td>
+                    <td>Fabio Ibutton</td>
+                    <td>Fabio Ibutton</td>
+                    <td>Teste</td>   
+                    <td></td>
+                    <td></td>
+                    <td>Não possui perfil</td>
+                </tr>
+
+                
+                <tr data-id="116662">
+                    <td>116662</td>
+                    <td>Marcia Ferreira</td>
+                    <td>Marcia Ferreira</td>
+                    <td>Garça</td>   
+                    <td>São Paulo</td>
+                    <td>Brasil</td>
+                    <td>Não possui perfil</td>
+                </tr>
+
+                
+                <tr data-id="117273">
+                    <td>117273</td>
+                    <td>Rickforce</td>
+                    <td>Rickforce</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Não possui perfil</td>
+                </tr>
+
+                
+                <tr data-id="124570">
+                    <td>124570</td>
+                    <td>Galdino</td>
+                    <td>Galdino</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Não possui perfil</td>
+                </tr>
+
+                
+                <tr data-id="125916">
+                    <td>125916</td>
+                    <td>Jean</td>
+                    <td>Jean</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Perfil Cliente Dauto</td>
+                </tr>
+
+                
+                <tr data-id="127545">
+                    <td>127545</td>
+                    <td>Bianca</td>
+                    <td>Bianca</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Perfil Cliente Dauto</td>
+                </tr>
+
+                
+                <tr data-id="127548">
+                    <td>127548</td>
+                    <td>Caio</td>
+                    <td>Caio</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Perfil Cliente Dauto</td>
+                </tr>
+
+                
+                <tr data-id="127566">
+                    <td>127566</td>
+                    <td>Jaqueline Alves</td>
+                    <td>Jaqueline Alves</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Perfil Cliente Dauto</td>
+                </tr>
+
+                
+                <tr data-id="127633">
+                    <td>127633</td>
+                    <td>Jaqueline</td>
+                    <td>Jaqueline</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Perfil Cliente Dauto</td>
+                </tr>
+
+                
+                <tr data-id="127646">
+                    <td>127646</td>
+                    <td>Larissa</td>
+                    <td>Larissa</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Perfil Cliente Dauto</td>
+                </tr>
+
+                
+                <tr data-id="127680">
+                    <td>127680</td>
+                    <td>Lucas</td>
+                    <td>Lucas</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Perfil Cliente Dauto</td>
+                </tr>
+
+                
+                <tr data-id="127696">
+                    <td>127696</td>
+                    <td>Vinicius</td>
+                    <td>Vinicius</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Perfil Cliente Dauto</td>
+                </tr>
+
+                
+                <tr data-id="127774">
+                    <td>127774</td>
+                    <td>Exposec 2019</td>
+                    <td>Exposec 2019</td>
+                    <td>Garça</td>   
+                    <td>São Paulo</td>
+                    <td>Brasil</td>
+                    <td>Completo</td>
+                </tr>
+
+                
+                <tr data-id="128994">
+                    <td>128994</td>
+                    <td>Julio Marcio</td>
+                    <td>Julio Marcio</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Não possui perfil</td>
+                </tr>
+
+                
+                <tr data-id="130010">
+                    <td>130010</td>
+                    <td></td>
+                    <td>123 ANA</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Não possui perfil</td>
+                </tr>
+
+                
+                <tr data-id="130338">
+                    <td>130338</td>
+                    <td>Fabio</td>
+                    <td>Fabio FRG</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Perfil Cliente Dauto</td>
+                </tr>
+
+                
+                <tr data-id="132689">
+                    <td>132689</td>
+                    <td>Autotrack Colombia</td>
+                    <td>Autotrack Colombia</td>
+                    <td>1</td>   
+                    <td>0</td>
+                    <td>0</td>
+                    <td>Perfil 1</td>
+                </tr>
+
+                
+                <tr data-id="132788">
+                    <td>132788</td>
+                    <td>GUILHERME TESTE</td>
+                    <td>TESTE GUILHERME</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>TESTE LMU3030</td>
+                </tr>
+
+                
+                <tr data-id="137560">
+                    <td>137560</td>
+                    <td>Prueba</td>
+                    <td>Prueba</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Completo</td>
+                </tr>
+
+                
+                <tr data-id="138439">
+                    <td>138439</td>
+                    <td>Haroldo</td>
+                    <td>Haroldo</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Não possui perfil</td>
+                </tr>
+
+                
+                <tr data-id="139309">
+                    <td>139309</td>
+                    <td>yokota</td>
+                    <td>yokota</td>
+                    <td></td>   
+                    <td></td>
+                    <td></td>
+                    <td>Completo</td>
+                </tr>
+
+                
+                <tr data-id="140855">
+                    <td>140855</td>
+                    <td>Lucas</td>
+                    <td>Lucas Consa</td>
+                    <td>Alvinlandia</td>   
+                    <td>São Paulo</td>
+                    <td>Brasil</td>
+                    <td>Não possui perfil</td>
+                </tr>
+
+                    </tbody>
+</table></body></html>

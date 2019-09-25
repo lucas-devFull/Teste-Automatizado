@@ -1,0 +1,9 @@
+--- 
+
+default: --profile pretty -p homologacao -p html
+pretty: --format pretty
+progress: --format progress
+homologacao: ambiente=homologacao
+producao: ambiente=producao
+minhaMaquina: ambiente=minhaMaquina
+html: --format html --out=reports/relatorio_pt.html

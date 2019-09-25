@@ -9,6 +9,10 @@ class Traducao
                 'Registro eliminado con éxito',
                 'Exito',
                 'Punto del referencia registrado con éxito',
+                'El rastreador ya esta activado!',
+                'Activado con éxito',
+                'Deshabilitado con éxito',
+                'Rastreador desinstalado con éxito'
             ],
             erro:[
                 'Existen pendientes en el formulario, por favor, revise los datos de la 1° o 3° pestaña',
@@ -21,6 +25,10 @@ class Traducao
                 'Usted debe seleccionar un registro en la cuadrícula',
                 'Desea realmente cancelar la operación ?',
                 'Para realizar la eliminación es necesario resolver el/los ítem(s) debajo',
+                'No es posible editar/excluir el rastreador, si ya está activo en alguna instalación.',
+                'Este rastreador ya esta instalado, para desactivar es necesario eliminar la instalación',
+                'No será posible enviar los datos de acceso para el cliente, pues el mismo no posee contactos con el mail principal comprobado .',
+                'Existen pendientes en el formulario, por favor, revise los datos de la 1° o 3° pestaña',
             ]
         }
         @ingles = {
@@ -29,6 +37,10 @@ class Traducao
                 'Record deleted successfully',
                 'Success',
                 'Point reference registered successfully',
+                'The tracker is already activated!',
+                'Ativado com sucesso',
+                'Successfully deactivated',
+                'Tracker uninstalled Success',
             ],
             erro:[
                 'There are pending on the form, please check the data of the 1st or 3rd tab',
@@ -41,6 +53,10 @@ class Traducao
                 'You must select a record in the Grid',
                 'Do you really want to cancel the operation?',
                 'To perform the deletion it is necessary above the resolvers',
+                'Not possible edit/delete tracker active or Garage',
+                'The tracker is installed you need to uninstall',
+                'You can not send the access data to the client because it has no contacts with the main checked email .',
+                'There are pending on the form, please check the data of the 1st or 3rd tab'
             ]
         }
     
@@ -49,7 +65,13 @@ class Traducao
                 'As informações foram salvas com sucesso',
                 'Registro deletado com sucesso',
                 'Sucesso',
-                'Ponto de referência cadastrado com sucesso'
+                'Ponto de referência cadastrado com sucesso',
+                'O rastreador já está ativo!',
+                'Ativado com sucesso',
+                'Desativado com sucesso',
+                'Rastreador desinstalado com sucesso !',
+                'Operação realizada com sucesso'
+
             ],
             erro:[
                 'Existem pendências no formulário, por favor, verifique os dados da 1º ou 3º aba.',
@@ -61,6 +83,10 @@ class Traducao
                 'É preciso selecionar um registro',
                 'Deseja realmente cancelar a operação ?',
                 'Para realizar a exclusão, é necessário resolver o(s) item(ns) abaixo',
+                'Não é possivel editar/excluir o rastreador se ele estiver ativo ou feito oficina.',
+                'Este rastreador já esta instalado, para desativar é preciso remover a instalação',
+                'Não será possível enviar os dados de acesso para o cliente, pois o mesmo não possui contatos com o email principal checado .',
+                'Existem pendências no formulário, por favor, verifique os dados da 1º ou 3º aba.'
             ]
         }
 

@@ -1,79 +1,52 @@
-class Ponto_referencia < SitePrism::Page
+class Ponto_referencia < Elementos_ponto_referencia
     include Capybara::DSL
     include RSpec::Matchers
-
-    set_url "#{CONFIG['url_login']}"
-
-    element :botao_novo, "#add"
-    element :botao_salvar, :xpath, "//button[@class='btn btn-success btn-salvar ladda-button']"
-    element :botao_salvar_continuar_registrando, :xpath, "//div[@class='btn-group open']/ul[@id='btn-form']/li/a[@class='btn-salvar btn-secundario ladda-button border0']"
-
-    element :descricao, "#ras_ref_descricao"
-    element :cliente, '#ras_ref_id_cli'
-    element :cidade, '#ras_ref_cidade'
-    element :estado, '#ras_ref_uf'
-    element :pais, '#ras_ref_pais'
-    element :tipo, '#ras_ref_tipo' 
-    element :pesquisaMapa, '#end-do-mapa'
-    element :autocomplete, :xpath, "//div[@class='autocomplete-suggestions ']/div[@class='autocomplete-suggestion']"
-
-    element :gridPesquisa, :xpath, "//div[@class='bootstrap-table']/div[@class='fixed-table-toolbar']/div[@class='pull-right search']/input[@class='form-control']"
-    element :ordenacao, :xpath, "//table[@id='bootstrap-table']/thead[@class='dark-thead']/tr/th[2]/div[@class='th-inner sortable both']"
-    element :idGrid, :xpath, "//div[@class='bootstrap-table']/div[@class='fixed-table-container']/div[@class='fixed-table-body']/table[@id='bootstrap-table']/tbody/tr[1]/td[2]"
-    element :descGrid, :xpath, "//div[@class='bootstrap-table']/div[@class='fixed-table-container']/div[@class='fixed-table-body']/table[@id='bootstrap-table']/tbody/tr[1]/td[4]"
-
-    # relatorio Ponto de referencia
-    element :gerarRelatorio, "#gerar_relatorio"
-
-    #  cadastro itinerario
-    element :inputDesc, "#ras_iti_descricao"
-    element :selectVeiculo, "#ras_itv_id_veiculo"
-    element :btn_proximo, ".next-step"
-
-    # mapa Painel de Bordo
-    element :btn_ponto, :xpath, "//a[@class='leaflet-draw-draw-marker']"
-    element :opção_mapa, :xpath, "/html/body/section[@class='ft-centerbox ft-menu-plus270px']/div[@id='painel_bordo_id']/div[@class='row ft-zero-margin-row set-fix-height-responsive totais']/div[@class='col-md-8 ft-zero-padding-row box-info']/div[@class='ft-topbox-dashboard map-tamanho-painel-bordo']/div[@id='map-canvas']/div[@class='leaflet-map-pane']/div[@class='leaflet-tile-pane']/div[@class='leaflet-layer']/div[@class='leaflet-tile-container leaflet-zoom-animated']/img[@class='leaflet-tile leaflet-tile-loaded'][1]/@src"
-    element :btn_criar, ".btn-finalizar-ponto"
-    element :marker_mapa, :xpath, "//div[@class='awesome-marker-icon-red awesome-marker leaflet-zoom-animated leaflet-clickable']"
-    element :opcao_ponto, :xpath, "//div[@id='home']/a[@class='btn btn-default btn-relatorios cadastropr']"
-
 
     def preencherCampoMapa(endereço)
         wait_for_ajax
         pesquisaMapa.set(endereço)
-        sleep(4)
+        sleep(2)
         pesquisaMapa.send_keys  :down
         pesquisaMapa.send_keys  :enter
     end    
 
     def preencherCampos(campos)
-        @descricao = 'Féito péçlo painel de Bôrdó'
+        @descricao = 'Téste Novínho'
         find_by_id(campos[0]).set(@descricao)
         select_by_value(campos[1],'2')
         sleep(2)
-        # if campos.include?('#ras_ref_id_cli')
+        if verificaUsuarioFinal() == false
             select_by_value(campos[2],campos[3])
-        # end        
+        end        
         return @descricao
     end
 
     def apagaDados(campos)
         for i in campos do
-            find(i).set(' ')            
+            find_by_id(i).set(' ')            
         end
     end
 
     def selecionarIcone(icone)
-        wait_for_ajax
-        find(:xpath, "//div/img[@class='imgpontoref'][#{icone}]").click()
+        if page.has_css?("#iframe_map")
+            within_frame('iframe_map') do
+                wait_for_ajax
+                find(:xpath, "//div/img[@class='imgpontoref'][#{icone}]").click()
+            end
+        else
+            wait_for_ajax
+            find(:xpath, "//div/img[@class='imgpontoref'][#{icone}]").click()
+        end
     end
 
     def verificarNaGrid(stringPesquisa)
-        wait_for_ajax
+        sleep(2)
         gridPesquisa.set(stringPesquisa)
-        wait_for_ajax
-        ordenacao.click()
-        wait_for_ajax
+        sleep(2)
+        ordenacaoAsc.click()
+        sleep 1
+        ordenacaoDesc.click()
+        sleep 1
         gridPesquisa.set(idGrid.text)
         return idGrid.text
     end
@@ -81,27 +54,33 @@ class Ponto_referencia < SitePrism::Page
     def verificaCamposPreenchidos(campos,valores)
         indice = 0
         while indice < valores.length
-            expect(valores[indice]).to eq find(campos[indice]).value            
+            if campos[indice] == 'abrir_modal'
+                expect(valores[indice]).to eq evaluate_script( "$('#" + campos[indice] + "').attr('#{(campos[indice] == 'abrir_modal') ? "data-nome-icon" : "value"}')")
+            elsif campos[indice] == 'cad-pointer'
+                expect(valores[indice]).to eq evaluate_script( "$('#" + campos[indice] + "').attr('#{(campos[indice] == 'cad-pointer') ? "data-nome-icon" : "value"}')")
+            end
+
             indice += 1
         end
-        
     end
 
-    def consultaPontoInput(url,selectCliente,cliente,inputPonto,ponto)
+    def consultaPontoInput(url,selectCliente,cliente,inputPonto,ponto,acao)
         visit "#{CONFIG['url_padrao']}/#{url}"
         wait_for_ajax
         if page.has_css?("#ras_iti_id_cliente")
             find_by_id(selectCliente).select(cliente)
             inputDesc.set("teste")
-            select_by_value("ras_itv_id_veiculo","148747")
+            select_by_value("ras_itv_id_veiculo","45048")
             btn_proximo.click()
-            select_by_value(inputPonto,ponto)
-
+            sleep(2)
+            if acao == "cadastro"
+                select_by_value(inputPonto,ponto)
+            end
         elsif page.has_css?("#descricaoPonto")
             find_by_id(inputPonto).set(ponto)
             gerarRelatorio.click()
         elsif page.has_css?('#idPontoRefAutoComplete')
-            evaluate_script("$('#idCliente').val('15931')")
+            evaluate_script("$('#idCliente').val('22647')")
             find_by_id(inputPonto).set(ponto)
             sleep 2
             find_by_id(inputPonto).send_keys(:up)
@@ -115,15 +94,88 @@ class Ponto_referencia < SitePrism::Page
         wait_for_ajax
         within_frame('iframe_map') do
             if url == "adapter_controller?url=logistica/logisticaitinerario"
-                select_by_value("ras_cli_id_busca",'15931')
+                select_by_value("ras_cli_id_busca",'22647')
             else
                 evaluate_script(script)
             end
             find(inputPonto).set(ponto)
-            wait_for_ajax
+            sleep(3)
             find(inputPonto).send_keys(:down)
             find(inputPonto).send_keys(:down)
             find(inputPonto).send_keys(:enter)
         end
+    end
+
+    def selecionarRegistro(stringPesquisa)
+        wait_for_ajax
+        gridPesquisa.set(stringPesquisa)
+        wait_for_ajax
+        sleep 2
+        ordenacaoAsc.click()
+        sleep(1)
+        ordenacaoDesc.click()
+        wait_for_ajax
+        gridPesquisa.set(idGrid.text)
+        sleep(2)
+        idGrid.click()
+        return idGrid.text
+    end
+
+    def verificaExclusao(caminho,id)
+        if page.has_css?('#iframe_map')
+            within_frame('iframe_map') do
+                expect(page.has_no_xpath?("//select[@id='#{caminho}']/option[@value='#{id}']")).to eq  true
+            end
+        else
+            expect(page.has_no_xpath?("//select[@id='#{caminho}']/option[@value='#{id}']")).to eq  true
+        end
+    end
+
+    def verificaCadastro(caminho,id,desc)
+        if page.has_css?('#iframe_map')
+            within_frame('iframe_map') do
+                expect(find_by_id(caminho).value).to eq id
+                if find_by_id(caminho).value == id
+                    expect(find("span#select2-ponto-ref-lista-container").text()).to eq desc
+                end
+            end
+        else
+            expect(find_by_id(caminho).value).to eq id
+            if find_by_id(caminho).value == id
+                expect(find("span#select2-ponto-ref-lista-container").text()).to eq desc
+            end
+        end
+    end
+
+    def verificaConsulta(caminho,acao,id,desc)
+        if acao == "cadastro"
+            verificaCadastro(caminho,id,desc)
+        elsif acao == "exclusao"
+            verificaExclusao(caminho,id)
+        end        
+    end
+
+    def verificaConsultaPF(acao,desc)
+        if acao == "cadastro"
+            expect(descGrid.text).to eq desc
+        elsif acao == "exclusao"
+            expect(page.has_css?(".no-records-found")).to eq true
+          end        
+    end
+
+    def verificaTipoPonto(caminho,id,desc,acao)
+        if acao == 'cadastro'
+            if caminho == "ras_ref_tipo"
+                expect(text_select_tipo_ponto.text).to eq desc
+            else
+                expect(text_select_tipo_ponto_telaAssociada.text).to eq desc
+            end
+        elsif acao == 'exclusao'
+            verificaExclusao(caminho ,id)
+        end
+    end
+
+    def verificaPopUp()
+        expect(page).to have_xpath("//div[@role='tooltip']")
     end
 end

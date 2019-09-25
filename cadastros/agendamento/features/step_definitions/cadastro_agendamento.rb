@@ -4,7 +4,7 @@
 Dado("a realizacao do login e a entrada na pagina de agendamento") do
   cad_agendamento.load
   loginSistema()
-  entrarNaPagina("#menu2","9")
+  entrarNaPagina("#menu2","10")
 end
 
 # teste botao novo
@@ -117,4 +117,5 @@ end
 
 Entao("uma nova aba irá abrir e baixar a exportação") do
   page.driver.browser.window_handles.length.should == 2
+  verificarDownloads('./Downloads','.xls','Cadastro de Agendamento.xls')
 end

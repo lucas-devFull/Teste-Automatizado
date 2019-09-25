@@ -1,5 +1,5 @@
 Before do         
-    page.driver.browser.manage.window.resize_to(1600,1000) 
+    page.driver.browser.manage.window.resize_to(1620,1120) 
 end
 
 After do |scenario|
@@ -16,13 +16,11 @@ After do |scenario|
         tirarFoto(scenario_name,'passou','idioma_pt')
     end
 
-    wait_for_ajax
-    @MenuUsuario = find_by_id('menu-de-usuario')
-
-    if verificaUsuarioFinal() == true
-        @MenuUsuario.click()
-    else 
-        @MenuUsuario.double_click().click()
-    end
-    find("a[href='#{CONFIG['url_padrao']}/logout/fulltime']").click()
+    # @MenuUsuario = find_by_id('menu-de-usuario')
+    # if verificaUsuarioFinal() == true
+        # @MenuUsuario.click()
+    # else 
+        # @MenuUsuario.double_click().click()
+    # end
+    # find("a[href='#{CONFIG['url_padrao']}/logout/fulltime']").click()
 end

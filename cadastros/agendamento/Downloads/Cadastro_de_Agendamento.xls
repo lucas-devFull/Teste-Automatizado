@@ -1,0 +1,96 @@
+
+<html><head></head><body><table id="tabela_agendamento" class="table table-striped dt-responsive dataTable dtr-inline" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Cliente</th>
+            <th>Veículo</th>
+            <th>Placa</th>
+            <th>Período</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        
+                <tr data-id="387">
+                    <td>387</td>
+                    <td>Teste Fmobile</td>
+                    <td>Teste GV75</td>
+                    <td>Teste GV75</td>
+                    <td>Dia</td>
+                </tr>
+
+                
+                <tr data-id="655">
+                    <td>655</td>
+                    <td>Ana Beatriz</td>
+                    <td>    b</td>
+                    <td>VTH123</td>
+                    <td>Dia</td>
+                </tr>
+
+                
+                <tr data-id="793">
+                    <td>793</td>
+                    <td>Junho2017</td>
+                    <td>Gol </td>
+                    <td>PFU-0275</td>
+                    <td>Dia</td>
+                </tr>
+
+                
+                <tr data-id="845">
+                    <td>845</td>
+                    <td>Neto Rastreadores</td>
+                    <td>Gol Preto</td>
+                    <td>QWE9637</td>
+                    <td>Semana</td>
+                </tr>
+
+                
+                <tr data-id="1025">
+                    <td>1025</td>
+                    <td>Rafael yokota</td>
+                    <td>RST-LC</td>
+                    <td>RST LC</td>
+                    <td>Semana</td>
+                </tr>
+
+                
+                <tr data-id="1703">
+                    <td>1703</td>
+                    <td>123anabia</td>
+                    <td>teste</td>
+                    <td>teste</td>
+                    <td>Dia</td>
+                </tr>
+
+                
+                <tr data-id="1707">
+                    <td>1707</td>
+                    <td>Rafael Francine</td>
+                    <td>Fiat</td>
+                    <td>RAF8547</td>
+                    <td>Dia</td>
+                </tr>
+
+                
+                <tr data-id="1708">
+                    <td>1708</td>
+                    <td>Ana Beatriz</td>
+                    <td>BIA1234</td>
+                    <td>BIA1234</td>
+                    <td>Dia</td>
+                </tr>
+
+                
+                <tr data-id="1814">
+                    <td>1814</td>
+                    <td>123anabia</td>
+                    <td>husadufhsadufh</td>
+                    <td>husadufhsa</td>
+                    <td>Dia</td>
+                </tr>
+
+                    </tbody>
+</table></body></html>

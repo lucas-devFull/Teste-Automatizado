@@ -2,7 +2,7 @@ class Agendamento < SitePrism::Page
     include Capybara::DSL
     include RSpec::Matchers
 
-    set_url "#{CONFIG['url_login']}"
+    set_url "#{CONFIG['url_teste']}"
     element :cliente, "select[id='ras_age_cli_id']"  
     element :veiculo, "select[id='ras_age_id_veiculo']"
     element :periodo, "select[id='ras_age_periodicidade']"

@@ -15,13 +15,28 @@ def carregandoYML(ambiente)
     return YAML.load_file(File.dirname(__FILE__) + "/ambiente/#{ambiente}.yml")
 end
 
+def loginFtTools()
+
+    find_by_id('usuario').set('lucas.conceicao')
+    find_by_id('senha').set('lucas2k19@!')
+    find('.btn-entrar').click()
+end
+
 # metodo global para logar no sistema
 def loginSistema
     # login com cadastros prontos
     # find('input#login').set('anabiaaaa') # indice cliente
     # find('input#password').set('pass')
-    find('input#login').set('admin') # indice admin
-    find('input#password').set('uQXWy6ec')
+    # find_by_id('login').set('admin') # indice admin
+    # find_by_id('password').set('uQXWy6ec')
+
+    # teste hardware login
+    find_by_id('login').set('lucasc')
+    find_by_id('password').set('lucasc')
+
+    #  indice 7112
+    find_by_id('login').set('lucas')
+    find_by_id('password').set('admin')
 
     # indice novo, inicio de cadastro 22/07/2019
     # find('input#login').set('Consa') # indice admin
@@ -29,22 +44,26 @@ def loginSistema
     # find('input#login').set('LucasConsa') # indice cliente
     # find('input#password').set('123456')
 
-    find('.btn').click()              
+    find('.btn-login').click()              
 
-    find('#menu-de-linguagens').click()
-    @idioma = find("a[href='#{CONFIG['url_padrao']}/configuracao_sistema_controller/altera_idioma_link/pt-BR']")
-    trocaIdioma(@idioma)
+    # find('#menu-de-linguagens').click()
+    # @idioma = find("a[href='#{CONFIG['url_padrao']}/configuracao_sistema_controller/altera_idioma_link/pt-BR']")
+    # trocaIdioma(@idioma)
     sleep 2
 end
 
 # metodo global para entrar na pagina, verificar pelo Xpath ou inspector de elemento o id do menu que tu quer acessar ex: cadastro, seu id é '#menu2',
 # e o numCadastro seria o numero da li em que o cadastro esta, Ex: NumCadastro == 10, acessa o cadastro de cliente
 def entrarNaPagina(menu,numCadastro)
-    wait_for_ajax
-    find_by_id("menu").click()
+    find(".ft-menu-toggle").click()
     find("a[href='#{menu}']").click()
-    wait_for_ajax
+    sleep(4)
     find(:xpath,"//ul[@id='#{menu.gsub('#','')}']/li[#{numCadastro}]/a[@class='item-menu']").click()
+end
+
+def entrarNaPaginaEspecifica(page)
+    visit "#{CONFIG['url_padrao']}/#{page}"
+    sleep(5)
 end
 
 # pega o idioma atual em que o sistema esta
@@ -59,7 +78,6 @@ def wait_for_ajax
         loop do
         active = page.evaluate_script('jQuery.active')
         break if active == 0
-        sleep 3
         end
     end
 end
@@ -99,9 +117,9 @@ def acessoOutrasEmpresas
     end
 end
 
-def foto(string)
+def foto(string,caminho)
     # passar o cenario ja como String, NAO ESQUECER
-        tirarFoto(string.gsub(/\ /,'_'),'passou','idioma_pt')
+        tirarFoto(string.gsub(/\ /,'_'),caminho,'idioma_pt')
 end
 
 def select_by_value(id, value)
@@ -118,7 +136,7 @@ end
 
 def verificarCamposObrigatorios(campos,msg_erro)
     for i in campos do
-        expect(find("#{i}").has_css?("#{msg_erro}"))
+        expect(find_by_id("#{i}").has_css?("#{msg_erro}"))
     end
 end
 
@@ -141,46 +159,102 @@ def ApagaTodosRegistros(passos)
     end
 end
 
-def consultasNoMapa(url,pesquisa,tipo,cliente,informacao)
+def consultasNoMapa(url,pesquisa,tipo,cliente,informacao,acao)
     visit "#{CONFIG['url_padrao']}/#{url}"
-    wait_for_ajax
-    sleep 5
     if page.has_css?('#iframe_map')
         within_frame('iframe_map') do 
-            wait_for_ajax
+            sleep 3
             evaluate_script('$(".leaflet-bar-part")[1].click()')
-            consultasMap(tipo,informacao,cliente)
+            consultasMap(tipo,informacao,cliente,acao)
         end
     else
         botaoPesquisa(pesquisa)
-        consultasMap(tipo,informacao,cliente)
+        consultasMap(tipo,informacao,cliente,acao)
     end
 end
 
-def consultasMap(tipo,informacao,cliente)
+def consultasMap(tipo,informacao,cliente,acao)
     select_by_value('lista-tipos',tipo)
     case tipo
     when 1
         find_by_id("busca-endereco").set(informacao)
     when 2
         select_by_value("mapa-lista-cliente",cliente)
-        wait_for_ajax
-        select_by_value("ponto-ref-lista",informacao)
+        sleep 2
+        if acao == "cadastro" 
+            select_by_value("ponto-ref-lista",informacao)
+        end
     when 3
         select_by_value("mapa-lista-cliente",cliente)
-        select_by_value("cerca-lista",informacao)
+        if acao == "cadastro"
+            select_by_value("cerca-lista",informacao)
+        end
     when 4 
         select_by_value("mapa-lista-cliente",cliente)
-        select_by_value("iti-lista",informacao)
+        if acao == "cadastro"
+            select_by_value("iti-lista",informacao)
+        end
     when 5
         find_by_id("busca-placa").set(informacao)
     when 6
         puts "vai aparecer a tabela"
     end
-
-    expect(find('#ponto-ref-lista').value).to eq @id
 end
 
 def botaoPesquisa(numeroBotao)
     find(:xpath, "//div[@class='leaflet-control-container']/div[@class='leaflet-top leaflet-left']/div[@class='leaflet-bar leaflet-control'][#{numeroBotao}]/a[@class='leaflet-bar-part']").click()
+end
+
+def select_by_attribute(idSelect,atributo,valueAttr)
+    find(:xpath, "//select[@id='#{idSelect}']/option[@#{atributo} ='#{valueAttr}']").click()    
+end
+
+def preencheCampos(campos, valores)
+    indice = 0
+    while indice < campos.length
+        if find_by_id(campos[indice]).value != ""
+            sleep(1)
+            select_by_value(campos[indice],valores[indice])
+        else
+            find_by_id(campos[indice]).set(valores[indice])
+        end
+        indice += 1
+    end
+end
+
+def select?(id)
+    puts id
+    if evaluate_script("document.getElementById('#{id}').tagName") == 'SELECT'        
+        return true
+    else
+        return false
+    end
+end
+
+def verificarDownloads(destino, extensao, nomeArquivo)
+    indice = 0
+    nomeSemEspaços = nomeArquivo.gsub(' ','_')
+    while indice < 10
+        if File.exist?("/home/lucas/Downloads/#{nomeArquivo}")  && File.extname(nomeArquivo) == extensao
+            File.rename "/home/lucas/Downloads/#{nomeArquivo}", "/home/lucas/Downloads/#{nomeSemEspaços}"
+            FileUtils.mv("/home/lucas/Downloads/#{nomeSemEspaços}", destino)
+            break
+        else
+            sleep(1)
+        end
+        indice += 1
+    end    
+end
+
+def iniciarApp()
+    $driver.start_driver
+    sleep(8)
+    $driver.find_element(:xpath, "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[2]
+        ").click()
+
+    sleep(5)
+end 
+
+def encerrarApp()
+    $driver.driver_quit
 end

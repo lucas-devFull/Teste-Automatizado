@@ -46,7 +46,7 @@ Então("deve buscar o registro cadastrado na grid") do
     expect(config_fcell.gridDescricao.text).to eq @descricaoCadastro
     @id = config_fcell.gridId.click()
     @idCadastro = @id.text
-    foto('verificacao de cadastro na Grid')
+    foto('verificacao de cadastro na Grid','passou')
 end
   
 Então("verificar se ele aparece no cadastro de acesso ao selecionar a opcao de busca Fcell") do
@@ -60,7 +60,7 @@ end
 # testes Botao - Excluir
 Então("ser exibido uma mensagem para escolher um registro") do
     verificarMensagens(config_fcell.mensagem.text,'alerta')
-    foto("alerta para selecionar um registro")
+    foto("alerta para selecionar um registro",'passou')
     find('.confirm').click()
 end
 
@@ -89,7 +89,7 @@ Entao("verifico se o registro ja saiu da grid") do
     wait_for_ajax
     config_fcell.verificarNaGrid(@id)
     expect(page.has_css?('.dataTables_empty')).to eq true
-    foto('verificacao de exclusao na Grid')
+    foto('verificacao de exclusao na Grid','passou')
 end
 
 Então("verifico se ele desapareceu do cadastro de acesso ao selecionar a opcao de busca Fcell") do
@@ -111,7 +111,7 @@ Então("deve buscar o registro alterado na grid") do
     wait_for_ajax
     config_fcell.verificarNaGrid(@id)
     expect(config_fcell.gridDescricao.text).to eq @descricaoEdicao
-    foto('alteracao dos campos')
+    foto('alteracao dos campos','passou')
 end
 
 Então("verificar se ele tambem foi alterado na opcao de busca Fcell") do
